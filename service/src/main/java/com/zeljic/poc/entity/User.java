@@ -14,8 +14,10 @@ public class User extends PanacheEntity
 	@Column(length = 16, nullable = false)
 	public String name;
 
+	@Column(length = 6, nullable = false)
 	public String code;
 
+	@Column(length = 8, nullable = false)
 	public String color;
 
 	@Column(name = "created_at", nullable = false, updatable = false)
