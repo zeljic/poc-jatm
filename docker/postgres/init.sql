@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: silos; Type: TABLE; Schema: public; Owner: poc-user
+-- Name: silos; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.silos (
@@ -37,10 +37,8 @@ CREATE TABLE public.silos (
 );
 
 
-ALTER TABLE public.silos OWNER TO "poc-user";
-
 --
--- Name: silos_id_seq; Type: SEQUENCE; Schema: public; Owner: poc-user
+-- Name: silos_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.silos_id_seq
@@ -52,17 +50,15 @@ CREATE SEQUENCE public.silos_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.silos_id_seq OWNER TO "poc-user";
-
 --
--- Name: silos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: poc-user
+-- Name: silos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.silos_id_seq OWNED BY public.silos.id;
 
 
 --
--- Name: silos_tasks; Type: TABLE; Schema: public; Owner: poc-user
+-- Name: silos_tasks; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.silos_tasks (
@@ -71,10 +67,8 @@ CREATE TABLE public.silos_tasks (
 );
 
 
-ALTER TABLE public.silos_tasks OWNER TO "poc-user";
-
 --
--- Name: statuses; Type: TABLE; Schema: public; Owner: poc-user
+-- Name: statuses; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.statuses (
@@ -83,10 +77,8 @@ CREATE TABLE public.statuses (
 );
 
 
-ALTER TABLE public.statuses OWNER TO "poc-user";
-
 --
--- Name: statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: poc-user
+-- Name: statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.statuses_id_seq
@@ -98,17 +90,15 @@ CREATE SEQUENCE public.statuses_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.statuses_id_seq OWNER TO "poc-user";
-
 --
--- Name: statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: poc-user
+-- Name: statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.statuses_id_seq OWNED BY public.statuses.id;
 
 
 --
--- Name: tasks; Type: TABLE; Schema: public; Owner: poc-user
+-- Name: tasks; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.tasks (
@@ -121,10 +111,8 @@ CREATE TABLE public.tasks (
 );
 
 
-ALTER TABLE public.tasks OWNER TO "poc-user";
-
 --
--- Name: tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: poc-user
+-- Name: tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.tasks_id_seq
@@ -136,17 +124,15 @@ CREATE SEQUENCE public.tasks_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.tasks_id_seq OWNER TO "poc-user";
-
 --
--- Name: tasks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: poc-user
+-- Name: tasks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.tasks_id_seq OWNED BY public.tasks.id;
 
 
 --
--- Name: tasks_users; Type: TABLE; Schema: public; Owner: poc-user
+-- Name: tasks_users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.tasks_users (
@@ -155,10 +141,8 @@ CREATE TABLE public.tasks_users (
 );
 
 
-ALTER TABLE public.tasks_users OWNER TO "poc-user";
-
 --
--- Name: user_seq; Type: SEQUENCE; Schema: public; Owner: poc-user
+-- Name: user_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.user_seq
@@ -169,10 +153,8 @@ CREATE SEQUENCE public.user_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.user_seq OWNER TO "poc-user";
-
 --
--- Name: users; Type: TABLE; Schema: public; Owner: poc-user
+-- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.users (
@@ -186,10 +168,8 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO "poc-user";
-
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: poc-user
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -201,17 +181,15 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.users_id_seq OWNER TO "poc-user";
-
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: poc-user
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: users_seq; Type: SEQUENCE; Schema: public; Owner: poc-user
+-- Name: users_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.users_seq
@@ -222,38 +200,36 @@ CREATE SEQUENCE public.users_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.users_seq OWNER TO "poc-user";
-
 --
--- Name: silos id; Type: DEFAULT; Schema: public; Owner: poc-user
+-- Name: silos id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.silos ALTER COLUMN id SET DEFAULT nextval('public.silos_id_seq'::regclass);
 
 
 --
--- Name: statuses id; Type: DEFAULT; Schema: public; Owner: poc-user
+-- Name: statuses id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.statuses ALTER COLUMN id SET DEFAULT nextval('public.statuses_id_seq'::regclass);
 
 
 --
--- Name: tasks id; Type: DEFAULT; Schema: public; Owner: poc-user
+-- Name: tasks id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.tasks ALTER COLUMN id SET DEFAULT nextval('public.tasks_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: poc-user
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Name: silos silos_pkey; Type: CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: silos silos_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.silos
@@ -261,7 +237,7 @@ ALTER TABLE ONLY public.silos
 
 
 --
--- Name: statuses statuses_id; Type: CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: statuses statuses_id; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.statuses
@@ -269,7 +245,7 @@ ALTER TABLE ONLY public.statuses
 
 
 --
--- Name: statuses statuses_name; Type: CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: statuses statuses_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.statuses
@@ -277,7 +253,7 @@ ALTER TABLE ONLY public.statuses
 
 
 --
--- Name: tasks tasks_id; Type: CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: tasks tasks_id; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.tasks
@@ -285,7 +261,7 @@ ALTER TABLE ONLY public.tasks
 
 
 --
--- Name: users users_id; Type: CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: users users_id; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users
@@ -293,7 +269,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_name; Type: CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: users users_name; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.users
@@ -301,28 +277,28 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: silos_name_index; Type: INDEX; Schema: public; Owner: poc-user
+-- Name: silos_name_index; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX silos_name_index ON public.silos USING btree (name) WITH (deduplicate_items='true');
 
 
 --
--- Name: tasks_name_index; Type: INDEX; Schema: public; Owner: poc-user
+-- Name: tasks_name_index; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX tasks_name_index ON public.tasks USING btree (name) WITH (deduplicate_items='true');
 
 
 --
--- Name: users_name_index; Type: INDEX; Schema: public; Owner: poc-user
+-- Name: users_name_index; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX users_name_index ON public.users USING btree (name) WITH (deduplicate_items='true');
 
 
 --
--- Name: silos_tasks silos_id; Type: FK CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: silos_tasks silos_id; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.silos_tasks
@@ -330,7 +306,7 @@ ALTER TABLE ONLY public.silos_tasks
 
 
 --
--- Name: silos silos_status_id; Type: FK CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: silos silos_status_id; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.silos
@@ -338,7 +314,7 @@ ALTER TABLE ONLY public.silos
 
 
 --
--- Name: silos_tasks tasks_id; Type: FK CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: silos_tasks tasks_id; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.silos_tasks
@@ -346,7 +322,7 @@ ALTER TABLE ONLY public.silos_tasks
 
 
 --
--- Name: tasks_users tasks_id; Type: FK CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: tasks_users tasks_id; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.tasks_users
@@ -354,7 +330,7 @@ ALTER TABLE ONLY public.tasks_users
 
 
 --
--- Name: tasks tasks_status_id; Type: FK CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: tasks tasks_status_id; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.tasks
@@ -362,7 +338,7 @@ ALTER TABLE ONLY public.tasks
 
 
 --
--- Name: tasks_users users_id; Type: FK CONSTRAINT; Schema: public; Owner: poc-user
+-- Name: tasks_users users_id; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.tasks_users
