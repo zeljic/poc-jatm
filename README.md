@@ -1,1 +1,5 @@
-# poc-quarkus-api-vue-ui
+# Proof of Concept
+- [ ] Quarkus
+- [ ] Vue
+- [ ] Docker
+- [ ] Postgres

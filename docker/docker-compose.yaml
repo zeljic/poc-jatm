@@ -1,0 +1,50 @@
+version: "3.8"
+
+name: "poc-quarkus-api-vue-ui"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: poc-quarkus-api-vue-ui-db
+    hostname: db
+    restart: always
+    tty: true
+    ports:
+      - "5001:5432"
+    expose:
+      - 5432
+    volumes:
+      - v-poc-quarkus-api-vue-ui-db:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_DB: poc-db
+      POSTGRES_USER: poc-user
+      POSTGRES_PASSWORD: poc-sakila
+    networks:
+      - poc-quarkus-api-vue-ui
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: poc-quarkus-api-vue-ui-pgadmin
+    restart: always
+    tty: true
+    ports:
+      - "5002:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: zeljic@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: poc-pgadmin
+    volumes:
+      - v-poc-quarkus-api-vue-ui-pgadmin:/var/lib/pgadmin
+    networks:
+      - poc-quarkus-api-vue-ui
+    deploy:
+      mode: replicated
+      replicas: 1
+
+networks:
+  poc-quarkus-api-vue-ui:
+    driver: bridge
+
+volumes:
+  v-poc-quarkus-api-vue-ui-db:
+  v-poc-quarkus-api-vue-ui-pgadmin:
