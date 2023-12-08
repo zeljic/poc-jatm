@@ -11,17 +11,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Path("/api/users")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class Users
 {
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> index()
 	{
 		return User.listAll();
 	}
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
 	public User get(Long id)
 	{
@@ -49,8 +49,8 @@ public class Users
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 
+		entity.email = user.email;
 		entity.name = user.name;
-		entity.code = user.code;
 		entity.color = user.color;
 
 		entity.updatedAt = LocalDateTime.now();
