@@ -40,16 +40,7 @@ public class User extends PanacheEntityBase
 	@Check(constraints = "LENGTH(color) = 6 OR LENGTH(color) = 8")
 	public String color;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(
-		name = "tasks_users",
-		joinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "task_user_user_id_fk")),
-		inverseJoinColumns = @JoinColumn(name = "task_id", foreignKey = @ForeignKey(name = "task_user_task_id_fk"))
-	)
-	@JsonManagedReference
-	public Set<Task> tasks;
-
-	@Column(name = "created_at", nullable = false, columnDefinition = "now()")
+	@Column(name = "created_at", nullable = false)
 	public LocalDateTime createdAt;
 
 	@Column(name = "updated_at")
@@ -57,4 +48,22 @@ public class User extends PanacheEntityBase
 
 	@Column(name = "deleted_at")
 	public LocalDateTime deletedAt;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+		name = "users_tasks",
+		joinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "users_tasks_user_id_fk")),
+		inverseJoinColumns = @JoinColumn(name = "task_id", foreignKey = @ForeignKey(name = "users_tasks_task_id_fk"))
+	)
+	@JsonManagedReference
+	public Set<Task> tasks;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+		name = "users_roles",
+		joinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "users_roles_user_id_fk")),
+		inverseJoinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "users_roles_role_id_fk"))
+	)
+	@JsonManagedReference
+	public Set<Role> roles;
 }

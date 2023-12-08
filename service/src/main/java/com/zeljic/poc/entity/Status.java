@@ -18,6 +18,7 @@ public class Status extends PanacheEntityBase
 	@Column(name = "name", nullable = false)
 	public String name;
 
+	@Column(name = "description", columnDefinition = "TEXT")
 	public String description;
 
 	@Column(length = 8)

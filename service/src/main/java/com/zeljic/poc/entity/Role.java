@@ -1,7 +1,10 @@
 package com.zeljic.poc.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table(
@@ -19,4 +22,8 @@ public class Role extends PanacheEntityBase
 	public String name;
 
 	public String description;
+
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
+	@JsonBackReference
+	public Set<User> users;
 }
