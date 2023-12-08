@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/poc-quarkus-api-vue-ui .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/poc-yatm .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/poc-quarkus-api-vue-ui
+# docker run -i --rm -p 8080:8080 quarkus/poc-yatm
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.9
