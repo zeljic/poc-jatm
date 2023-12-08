@@ -12,7 +12,7 @@ import java.util.List;
 @Path("/api/tasks")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class Tasks
+public class TasksResource
 {
 	@GET
 	public List<Task> index()

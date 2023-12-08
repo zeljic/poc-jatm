@@ -13,7 +13,7 @@ import java.util.List;
 @Path("/api/users")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class Users
+public class UsersResource
 {
 	@GET
 	public List<User> index()
