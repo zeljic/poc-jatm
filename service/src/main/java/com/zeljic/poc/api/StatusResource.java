@@ -1,22 +1,30 @@
-package com.zeljic.poc;
+package com.zeljic.poc.api;
 
+import com.zeljic.poc.api.list.ListBean;
+import com.zeljic.poc.api.list.ListQuery;
 import com.zeljic.poc.entity.Status;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
-import jakarta.ws.rs.Path;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
 @Path("/api/status")
-public class StatusResource
+public class StatusResource extends ResourceBase
 {
-	@GET
-	public List<Status> index()
 	{
-		return Status.listAll();
+		this.searchable = List.of("name");
+	}
+
+	@GET
+	public List<Status> index(@BeanParam ListBean listBean)
+	{
+		var listQuery = new ListQuery<Status, StatusResource>();
+
+		listQuery.setResource(this);
+		listQuery.setListBean(listBean);
+
+		return listQuery.execute(Status.class);
 	}
 
 	@GET
