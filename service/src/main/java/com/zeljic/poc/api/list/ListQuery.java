@@ -43,6 +43,8 @@ public class ListQuery<T, R extends ResourceBase>
 
 		scopeSearch(criteriaQuery, root);
 
+		scopeFilter(criteriaQuery, root);
+
 		scopeTrashed(criteriaQuery, root);
 
 		scopeOrder(criteriaQuery, root);
@@ -62,6 +64,8 @@ public class ListQuery<T, R extends ResourceBase>
 		criteriaQuery.select(criteriaBuilder.count(root));
 
 		scopeSearch(criteriaQuery, root);
+
+		scopeFilter(criteriaQuery, root);
 
 		scopeTrashed(criteriaQuery, root);
 
@@ -109,6 +113,14 @@ public class ListQuery<T, R extends ResourceBase>
 			case Ascending -> criteriaQuery.orderBy(criteriaBuilder.asc(key));
 			case Descending -> criteriaQuery.orderBy(criteriaBuilder.desc(key));
 		}
+	}
+
+	private void scopeFilter(final CriteriaQuery<?> criteriaQuery, final Root<?> root)
+	{
+		this.listBean.getFilter().forEach((key, value) ->
+		{
+			criteriaQuery.where(criteriaBuilder.equal(root.get(key), value));
+		});
 	}
 
 }

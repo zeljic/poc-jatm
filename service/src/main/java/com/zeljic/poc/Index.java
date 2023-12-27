@@ -17,5 +17,4 @@ public class Index
 	{
 		return Map.of("message", "zdravo svete");
 	}
-
 }

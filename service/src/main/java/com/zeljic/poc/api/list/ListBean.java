@@ -1,16 +1,13 @@
 package com.zeljic.poc.api.list;
 
 import io.quarkus.panache.common.Sort;
-import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.QueryParam;
 import org.eclipse.microprofile.config.inject.ConfigProperties;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class ListBean
 {
